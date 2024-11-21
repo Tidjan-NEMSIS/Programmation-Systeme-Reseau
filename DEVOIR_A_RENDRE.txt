@@ -1,0 +1,65 @@
+Devoir 1  - Options et arguments sur la ligne de commande (Date limite : 22/12/2024)
+
+Exercice  1 :
+Ecrire un programme qui prend en argument sur la ligne de commande :
+-f  entier
+   Cette option prend comme argument un entier n et calcule 2^n = f(n)
+-g entier
+    Cette option prend comme argument un entier m et calule 2*n = g(n)
+
+Si les options sont enchainée, le programme doit calculer la composition de fonction fog  ou gof en fonction de l'ordre des options
+Exemple
+#calcule de 2^3
+./prog -p 3
+
+#calcul de 2*3
+./prog -g 3
+
+#calcul de fog(3)
+./prog -f 3 -g
+
+#calcul de gof(3)
+./prog -g 3 -f
+
+
+Devoir 2 - Sauvegarde de matrice dans un fichier (22 nov 23::59)
+
+Ecrire un programme qui permet d'enregistrer et d'afficher une matrice carrée au format binaire et texte.   
+Le programme prend en argument sur la ligne de commande les options suivantes :
+-c   // permet de demander la creation d'une matrice aléatoire 
+-a  // pour induquer au programme d'afficher le contenu du fichier 
+-d entier // spécifie la dimension de la matrice exemple -d 10 permet d'indiquer que c'est une matrice 10x10  
+-b // indique que c'est en mode binaire (mode par defaut)
+-t // indique le format du fichier est en mode texte 
+-f nomfichier // specifie le nom du fichier 
+Les usages possibles du programmes ./matrix -c -d 10 -f fichiermatrice.bin
+./matrix -c -d 10 -f fichiermatrice.bin -t
+./matrix -a -d 10 -f fichiermatrice.bin -t
+
+Devoir 3 - Split and joint    Date limite : 22 nov. 23:59
+
+Ecrire le programme split permettant de découper un fichier en plusieurs en indiquant le nom du fichier et la taille 
+forme
+./split nomfichcier taille
+
+Ecrire la fonction join
+./split nomfichcier part1 part2 part3 part4
+
+Devoir 4 - Thread   Date limite : 23 nov. 23:59
+
+
+Ecrire un programme qui instancie deux Threads et utilise les sémaphores de telle sorte que le thread 1 va faire +1 jusqu'à +n, ensuite le thread 2 prend le relai pour faire -1 jusqu'à -n. 
+Le resultat donc serait des valeurs qui varie entre -n à 0 à +n
+Tracer le resultat sur une courbe
+
+
+Exercice 5 Execution d'une liste de Thread dans un ordre linéaire
+Maïssa MBAYE
+•
+16 nov.
+100 points
+Date limite : 23 nov. 23:59
+Ecrire un programme qui permet de lancer n threads et les executent à tour de role selon un ordre prédéfinie.
+L'ordre est le suivant Thread1, Thread2, .. Threadn, Thread1, Thread2, ... en boucle.
+
+Chaque thread peut juste afficher un message pour dire qu'il vient de s'executer.
