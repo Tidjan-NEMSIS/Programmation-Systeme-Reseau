@@ -49,17 +49,4 @@ Devoir 4 - Thread   Date limite : 23 nov. 23:59
 
 
 Ecrire un programme qui instancie deux Threads et utilise les sémaphores de telle sorte que le thread 1 va faire +1 jusqu'à +n, ensuite le thread 2 prend le relai pour faire -1 jusqu'à -n. 
-Le resultat donc serait des valeurs qui varie entre -n à 0 à +n
-Tracer le resultat sur une courbe
-
-
-Exercice 5 Execution d'une liste de Thread dans un ordre linéaire
-Maïssa MBAYE
-•
-16 nov.
-100 points
-Date limite : 23 nov. 23:59
-Ecrire un programme qui permet de lancer n threads et les executent à tour de role selon un ordre prédéfinie.
-L'ordre est le suivant Thread1, Thread2, .. Threadn, Thread1, Thread2, ... en boucle.
-
-Chaque thread peut juste afficher un message pour dire qu'il vient de s'executer.
+Le resultat donc serait des valeurs qui varie entre -

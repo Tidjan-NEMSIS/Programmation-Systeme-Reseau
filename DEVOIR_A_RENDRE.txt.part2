@@ -1,0 +1,22 @@
+tier // spécifie la dimension de la matrice exemple -d 10 permet d'indiquer que c'est une matrice 10x10  
+-b // indique que c'est en mode binaire (mode par defaut)
+-t // indique le format du fichier est en mode texte 
+-f nomfichier // specifie le nom du fichier 
+Les usages possibles du programmes ./matrix -c -d 10 -f fichiermatrice.bin
+./matrix -c -d 10 -f fichiermatrice.bin -t
+./matrix -a -d 10 -f fichiermatrice.bin -t
+
+Devoir 3 - Split and joint    Date limite : 22 nov. 23:59
+
+Ecrire le programme split permettant de découper un fichier en plusieurs en indiquant le nom du fichier et la taille 
+forme
+./split nomfichcier taille
+
+Ecrire la fonction join
+./split nomfichcier part1 part2 part3 part4
+
+Devoir 4 - Thread   Date limite : 23 nov. 23:59
+
+
+Ecrire un programme qui instancie deux Threads et utilise les sémaphores de telle sorte que le thread 1 va faire +1 jusqu'à +n, ensuite le thread 2 prend le relai pour faire -1 jusqu'à -n. 
+Le resultat donc serait des valeurs qui varie entre -

@@ -1,0 +1,31 @@
+Devoir 1  - Options et arguments sur la ligne de commande (Date limite : 22/12/2024)
+
+Exercice  1 :
+Ecrire un programme qui prend en argument sur la ligne de commande :
+-f  entier
+   Cette option prend comme argument un entier n et calcule 2^n = f(n)
+-g entier
+    Cette option prend comme argument un entier m et calule 2*n = g(n)
+
+Si les options sont enchainée, le programme doit calculer la composition de fonction fog  ou gof en fonction de l'ordre des options
+Exemple
+#calcule de 2^3
+./prog -p 3
+
+#calcul de 2^3
+./prog -g 3
+
+#calcul de fog(3)
+./prog -f 3 -g
+
+#calcul de gof(3)
+./prog -g 3 -f
+
+
+Devoir 2 - Sauvegarde de matrice dans un fichier (22 nov 23::59)
+
+Ecrire un programme qui permet d'enregistrer et d'afficher une matrice carrée au format binaire et texte.   
+Le programme prend en argument sur la ligne de commande les options suivantes :
+-c   // permet de demander la creation d'une matrice aléatoire 
+-a  // pour induquer au programme d'afficher le contenu du fichier 
+-d en

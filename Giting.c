@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h> // Pour SetCurrentDirectory
+#include <windows.h> 
 
 #define MAX_CMD_LEN 1024
 
 void execute_command(const char *cmd) {
-    printf("Exécution : %s\n", cmd);
+    printf("Executing: %s\n", cmd);
     int result = system(cmd);
     if (result != 0) {
-        printf("Erreur lors de l'exécution de la commande : %s\n", cmd);
+        printf("Erreur lors de l'execution de la commande : %s\n", cmd);
         exit(EXIT_FAILURE);
     }
 }
@@ -23,17 +23,17 @@ int main(int argc, char *argv[]) {
     char *dossier = argv[1];
     char *url_git = argv[2];
 
-    // Change le répertoire vers le dossier spécifié
+    
     if (!SetCurrentDirectory(dossier)) {
-        printf("Erreur : Impossible d'accéder au dossier '%s'\n", dossier);
+        printf("Erreur : Impossible d'acceder au dossier '%s'\n", dossier);
         return EXIT_FAILURE;
     }
 
-    // Initialisation du dépôt Git local
+    // Initialisation du depot Git local
     execute_command("git init");
 
-    // Demander à l'utilisateur s'il veut ajouter tous les fichiers
-    printf("Voulez-vous ajouter tous les fichiers du répertoire ? (o/n) : ");
+    // Demander a l'utilisateur s'il veut ajouter tous les fichiers
+    printf("Voulez-vous ajouter tous les fichiers du repertoire ? (o/n) : ");
     char choix;
     scanf(" %c", &choix);
     getchar(); // Consomme le saut de ligne restant
@@ -43,8 +43,8 @@ int main(int argc, char *argv[]) {
         // Ajouter tous les fichiers
         execute_command("git add .");
     } else {
-        // Ajouter des fichiers spécifiques
-        printf("Entrez les noms des fichiers à ajouter (séparés par des espaces) : ");
+        // Ajouter des fichiers specifiques
+        printf("Entrez les noms des fichiers a ajouter (separes par des espaces) : ");
         char fichiers[MAX_CMD_LEN];
         fgets(fichiers, MAX_CMD_LEN, stdin);
         fichiers[strcspn(fichiers, "\n")] = 0; // Retire le saut de ligne
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
     // Commit initial
     execute_command("git commit -m \"Initial commit\"");
 
-    // Configuration du dépôt distant
+    // Configuration du depot distant
     snprintf(cmd, MAX_CMD_LEN, "git remote add origin %s", url_git);
     execute_command(cmd);
 
@@ -64,6 +64,6 @@ int main(int argc, char *argv[]) {
     execute_command("git branch -M main");
     execute_command("git push -u origin main");
 
-    printf("Dépôt GitHub mis à jour avec succès !\n");
+    printf("Depot GitHub mis a jour avec succes !\n");
     return EXIT_SUCCESS;
 }
