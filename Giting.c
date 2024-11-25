@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h> // Pour SetCurrentDirectory
+#include <windows.h> 
 
 #define MAX_CMD_LEN 1024
 
@@ -23,44 +23,44 @@ int main(int argc, char *argv[]) {
     char *dossier = argv[1];
     char *url_git = argv[2];
 
-    // Change le répertoire vers le dossier spécifié
+    
     if (!SetCurrentDirectory(dossier)) {
         printf("Erreur : Impossible d'accéder au dossier '%s'\n", dossier);
         return EXIT_FAILURE;
     }
 
-    // Initialisation du dépôt Git local
+    
     execute_command("git init");
 
-    // Demander à l'utilisateur s'il veut ajouter tous les fichiers
+    
     printf("Voulez-vous ajouter tous les fichiers du répertoire ? (o/n) : ");
     char choix;
     scanf(" %c", &choix);
-    getchar(); // Consomme le saut de ligne restant
+    getchar(); 
 
     char cmd[MAX_CMD_LEN];
     if (choix == 'o' || choix == 'O') {
-        // Ajouter tous les fichiers
+        
         execute_command("git add .");
     } else {
-        // Ajouter des fichiers spécifiques
+        
         printf("Entrez les noms des fichiers à ajouter (séparés par des espaces) : ");
         char fichiers[MAX_CMD_LEN];
         fgets(fichiers, MAX_CMD_LEN, stdin);
-        fichiers[strcspn(fichiers, "\n")] = 0; // Retire le saut de ligne
+        fichiers[strcspn(fichiers, "\n")] = 0; 
 
         snprintf(cmd, MAX_CMD_LEN, "git add %s", fichiers);
         execute_command(cmd);
     }
 
-    // Commit initial
+    
     execute_command("git commit -m \"Initial commit\"");
 
-    // Configuration du dépôt distant
+    
     snprintf(cmd, MAX_CMD_LEN, "git remote add origin %s", url_git);
     execute_command(cmd);
 
-    // Pousser sur la branche principale
+    
     execute_command("git branch -M main");
     execute_command("git push -u origin main");
 
